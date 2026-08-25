@@ -49,7 +49,7 @@ INtrenship/
 `
 *(Note: Some directories contain boilerplate files in preparation for future advanced features.)*
 
-## 7. Installation Instructions
+## 7. Installation Instructions`n`n### OpenWeatherMap API Setup`nTo use the live weather feature, you need a free OpenWeatherMap API key:`n1. Sign up at [OpenWeatherMap](https://openweathermap.org/).`n2. Go to your API keys and copy your key.`n3. Copy the `.env.example` file to a new file named `.env`.`n4. Paste your key into the `OPENWEATHERMAP_API_KEY` variable inside the `.env` file.`n`n*Never share your `.env` file or commit it to GitHub. It is safely ignored by `.gitignore`.*`n
 
 1. **Clone the repository:**
    *(See GitHub usage instructions below)*
@@ -67,7 +67,7 @@ INtrenship/
    pip install -r requirements.txt
    `
 
-## 8. How to Run the Project
+### SMTP Email Setup`nTo use the email feature securely, you need an App Password (especially for Gmail):`n1. Go to your Google Account > Security.`n2. Enable 2-Step Verification if not already on.`n3. Search for "App Passwords" and generate a new one for "Mail".`n4. Copy the generated 16-character password.`n5. Open your `.env` file and set:`n   `EMAIL_ADDRESS=your_email@gmail.com``n   `EMAIL_PASSWORD=your_16_char_password``n`n*Never share your `.env` file or commit it to GitHub. If using a provider other than Gmail, you may need to modify the SMTP server in `src/email_service.py`.*`n`n### Custom Commands Setup`nUsers can add their own personalized commands without writing any Python code!`n1. Open `config/commands.json`.`n2. Add a new object to the `commands` array.`n3. Set a `trigger` (what you say), an `action_type` (e.g. `open_url`, `speak`), and the `action_value` (e.g. the URL).`n`nExample:`n```json`n{`n  "trigger": "open github",`n  "action_type": "open_url",`n  "action_value": "https://github.com"`n}`n````n*For security, the assistant will only run explicitly allowed actions and will never execute arbitrary code from this file.*`n`n## 8. How to Run the Project
 Ensure your virtual environment is active and your microphone is plugged in and recognized by your system.
 
 Navigate to the root directory of the project and execute:
@@ -104,7 +104,7 @@ The following advanced features are planned for subsequent phases of the interns
 - **General Knowledge QA:** Answering facts using Wikipedia or similar APIs.
 - **Custom Commands:** Allowing the user to map specific phrases to executable scripts via config.json.
 
-## 13. Privacy Considerations
+## 16. Privacy Considerations
 This assistant processes your audio and executes actions on your local machine. However, because it relies on the Google Web Speech API for transcription, your audio snippets are sent to Google's servers for processing. Additionally, the web search feature transmits your search terms to external search engines. Future offline speech recognition models (like Vosk) may be evaluated if strict offline privacy is required.
 
 ## 14. GitHub Usage Instructions
@@ -119,3 +119,22 @@ If you plan to contribute or manage versions of this project, you can use Git:
 
 ## 15. Author
 Developed by **Mahesh** as part of a Python Voice Assistant Internship Project.
+
+
+
+
+## 16. Privacy Considerations
+
+This voice assistant is designed with privacy in mind. Please be aware of the following data flows when using the application:
+
+* **Microphone Data & External Speech Recognition**: The application actively listens to your microphone when running. **This audio data is NOT processed locally.** The raw audio snippets are transmitted over the internet to **Google's public Speech Recognition API** (ecognize_google) to convert your speech into text.
+* **Weather Data**: If you ask for the weather, the specific city name you requested is transmitted to the **OpenWeatherMap API**.
+* **Email Transmission**: If you use the email feature, the recipient address, subject line, and email body are transmitted securely (via SSL) to your configured SMTP provider (e.g., Gmail). 
+* **Data Storage**: The application operates entirely in memory. It **does not** intentionally record, log, or save your voice audio, spoken commands, search queries, or conversation history to your hard drive. Once the application is closed, the session data is wiped.
+* **API Credentials**: Your API keys, email addresses, and passwords are only stored locally on your machine within the .env file. 
+* **Security Recommendations**: 
+    * **Never** commit your .env file to version control (like GitHub). It is explicitly listed in the .gitignore file to prevent this.
+    * Use an "App Password" (if your email provider supports it) rather than your primary account password for the email feature.
+    * Only run the voice assistant in trusted environments.
+
+

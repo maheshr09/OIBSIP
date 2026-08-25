@@ -13,4 +13,3 @@ def speak(text):
     except Exception as e:
         # Handle errors gracefully without crashing the program
         print(f"Error in TTS: {e}")
-

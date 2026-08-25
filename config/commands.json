@@ -1,0 +1,64 @@
+{
+  "commands": [
+    {
+      "trigger": "open github",
+      "action_type": "open_url",
+      "action_value": "https://github.com"
+    },
+    {
+      "trigger": "open youtube",
+      "action_type": "open_url",
+      "action_value": "https://youtube.com"
+    },
+    {
+      "trigger": "open instagram",
+      "action_type": "open_url",
+      "action_value": "https://instagram.com"
+    },
+    {
+      "trigger": "open twitter",
+      "action_type": "open_url",
+      "action_value": "https://twitter.com"
+    },
+    {
+      "trigger": "open x",
+      "action_type": "open_url",
+      "action_value": "https://twitter.com"
+    },
+    {
+      "trigger": "open facebook",
+      "action_type": "open_url",
+      "action_value": "https://facebook.com"
+    },
+    {
+      "trigger": "open whatsapp",
+      "action_type": "open_url",
+      "action_value": "https://web.whatsapp.com"
+    },
+    {
+      "trigger": "open linkedin",
+      "action_type": "open_url",
+      "action_value": "https://linkedin.com"
+    },
+    {
+      "trigger": "open snapchat",
+      "action_type": "open_url",
+      "action_value": "https://snapchat.com"
+    },
+    {
+      "trigger": "open telegram",
+      "action_type": "open_url",
+      "action_value": "https://telegram.org"
+    },
+    {
+      "trigger": "open facebook",
+      "action_type": "open_url",
+      "action_value": "https://web.whatsapp.com"
+    },
+    {
+      "trigger": "secret greeting",
+      "action_type": "speak",
+      "action_value": "Hello master, this is your custom greeting!"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import speech_recognition as sr
-from src.audio.speaker import speak
+from src.responses import speak
 
 def listen():
     """Captures audio from the microphone and returns the recognized text."""
@@ -33,4 +33,3 @@ def listen():
             # Catch-all for any other unexpected errors (prevents crashing)
             print(f"Error: {e}")
             return None
-
